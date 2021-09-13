@@ -1,0 +1,232 @@
+<main>
+  <div *ngIf="isProfileSuccess" class="alert alert-success alert-dismissible">
+    <span class="alert-inner--icon">
+      <i class="ni ni-like-2"></i>
+    </span>
+    <span class="alert-inner--text">  <strong>Profile Updated successfully</strong></span>
+  </div>
+  <div *ngIf="isPasswordSuccess" class="alert alert-success alert-dismissible">
+    <span class="alert-inner--icon">
+      <i class="ni ni-like-2"></i>
+    </span>
+    <span class="alert-inner--text">  <strong>Password Updated successfully</strong></span>
+  </div>
+    <section class="section pb-0 bg-gradient-warning">
+      <div class="container containerr">
+        <div class="row row-grid align-items-center">
+          <div class="col-md-6 order-lg-2 ml-lg-auto">
+            <div class="position-relative pl-md-5">
+              <img src="./assets/img/ill/ill-2.svg" class="img-center img-fluid">
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="d-flex px-3">
+              <div>
+                <div class="icon icon-lg icon-shape bg-gradient-white shadow rounded-circle text-primary">
+                  <i class="ni ni-building text-primary"></i>
+                </div>
+              </div>
+              <div class="pl-4">
+                <h4 class="display-3 text-white">Profiles <a class="btn btn-primary" *ngIf="!isEditProfile" (click)="onEditProfile()">Edit Profile </a>
+                    <a class="btn btn-info" *ngIf="!isChangePassword" (click)="chnagepassword()">Change Password</a>
+                </h4>
+                <p class="text-white">The Arctic Ocean freezes every winter and much of the sea-ice then thaws every summer, and that process will continue whatever.</p>
+              </div>
+            </div>
+            <div class="card bg-secondary shadow border-0">
+                <div class="card-body px-lg-5 py-lg-5">
+                  <form *ngIf="!isChangePassword" [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+                      <div class="row row-update">
+                    <div class="form-group" [ngClass]="{'focused':focus===true}">
+                        <label>First Name</label>
+                      <div class="input-group input-group-alternative mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                        </div>
+                        <input formControlName="firstName" class="form-control" placeholder="First Name" type="text" (focus)="focus=true" (blur)="focus=false">
+                      </div>
+                      <div *ngIf="submitted && f.firstName.errors" class="text-danger">
+                        <div *ngIf="f.firstName.errors.required !!">First Name is required !!</div>
+                    </div>
+                    </div>
+                    
+                    <div class="form-group" [ngClass]="{'focused':focus3===true}">
+                        <label>Last Name</label>
+                      <div class="input-group input-group-alternative mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                        </div>
+                        <input formControlName="lastName" class="form-control" placeholder="Last Name" type="text" (focus)="focus3=true" (blur)="focus3=false">
+                      </div>
+                      <div *ngIf="submitted && f.lastName.errors" class="text-danger">
+                        <div *ngIf="f.lastName.errors.required !!">Last Name is required !!</div>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="row row-update">
+                    <div class="custom-control custom-radio mb-3">
+                      <input id="male" type="radio" class="custom-control-input" value="male" name="gender" formControlName="gender">
+                      <label class="custom-control-label" for="male">Male</label>
+                    </div>
+        
+                    <div class="custom-control custom-radio mb-3">
+                      <input id="female" type="radio" class="custom-control-input" value="female" name="gender" formControlName="gender">
+                      <label class="custom-control-label" for="female">Female</label>
+                    </div>
+                    </div>
+                    <div >
+                    </div>
+                    <div class="row row-update">
+                        <div class="form-group form-grp-date">
+                            <label>Date of Birth</label>
+                    <div  class="input-group input-group-alternative mb-3">
+                      <div  class="input-group-prepend">
+                        <span  class="input-group-text"><i  class="ni ni-calendar-grid-58"></i></span></div>
+                          <input  formControlName="dob" placeholder="Date of birth" name="dp" ngbdatepicker="" type="date" autocomplete="off" class="form-control" >
+                    </div>
+                        </div>
+                    <div class="form-group" [ngClass]="{'focused':focus4===true}">
+                        <label>Phone Number</label>
+                        <div class="input-group input-group-alternative mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
+                          </div>
+                          <input formControlName="phone" class="form-control" placeholder="Phone Number" type="text" (focus)="focus4=true" (blur)="focus4=false">
+                        </div>
+                        <div *ngIf="submitted && f.phone.errors" class="text-danger">
+                          <div *ngIf="f.phone.errors.required !!">Phone number is required !!</div>
+                          <div *ngIf="f.phone.errors.minlength">Phone number minimum 10 digits</div>
+                      </div>
+                      </div>
+                    
+                </div>
+                <div class="row row-update">
+                    <div class="form-group" [ngClass]="{'focused':focus5===true}">
+                        <label>City</label>
+                        <div class="input-group input-group-alternative mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-building"></i></span>
+                          </div>
+                          <input formControlName="city" class="form-control" placeholder="City" type="text" (focus)="focus5=true" (blur)="focus5=false">
+                        </div>
+                        <div *ngIf="submitted && f.city.errors" class="text-danger">
+                          <div *ngIf="f.city.errors.required !!">City is required !!</div>
+                      </div>
+                      </div>
+                      <div class="form-group" [ngClass]="{'focused':focus6===true}">
+                        <label>State</label>
+                        <div class="input-group input-group-alternative mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-building"></i></span>
+                          </div>
+                          <input formControlName="state" class="form-control" placeholder="State" type="text" (focus)="focus6=true" (blur)="focus6=false">
+                        </div>
+                        <div *ngIf="submitted && f.state.errors" class="text-danger">
+                          <div *ngIf="f.state.errors.required !!">State is required !!</div>
+                      </div>
+                      </div>
+                </div>
+                
+                <div class="row row-update">
+                    <div class="form-group" [ngClass]="{'focused':focus7===true}">
+                        <label>Country</label>
+                        <div class="input-group input-group-alternative mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-building"></i></span>
+                          </div>
+                          <input formControlName="country" class="form-control" placeholder="Country" type="text" (focus)="focus7=true" (blur)="focus7=false">
+                        </div>
+                        <div *ngIf="submitted && f.country.errors" class="text-danger">
+                          <div *ngIf="f.country.errors.required !!">Country is required !!</div>
+                      </div>
+                      </div>
+                      <div class="form-group" [ngClass]="{'focused':focus8===true}">
+                        <label>Pincode</label>
+                        <div class="input-group input-group-alternative mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-briefcase-24"></i></span>
+                          </div>
+                          <input formControlName="pincode" class="form-control" placeholder="Pincode" type="text" (focus)="focus8=true" (blur)="focus8=false">
+                        </div>
+                        <div *ngIf="submitted && f.pincode.errors" class="text-danger">
+                          <div *ngIf="f.pincode.errors.required !!">Pincode  is required !!</div>
+                      </div>
+                      </div>
+                </div>
+                <div class="form-group form-grp-email" [ngClass]="{'focused':focus1===true}">
+                    <label>Email</label>
+                    <div class="input-group input-group-alternative mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                      </div>
+                      <input class="form-control" formControlName="email" placeholder="Email" type="email" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"(focus)="focus1=true" (blur)="focus1=false">
+                    </div>
+                    <div *ngIf="submitted && f.email.errors" class="text-danger">
+                      <div *ngIf="f.email.errors.required !!">Email Name is required !!</div>
+                      <div *ngIf="f.email.errors.email">Email is invalid</div>
+                  </div>
+                  </div>
+
+
+                    <div class="row my-4">
+                      <div class="col-12">
+                      </div>
+                    </div>
+                    <div class="text-center">
+                        <button (click)="onEditProfile()" type="button" *ngIf="!isEditProfile" class="btn btn-primary mt-4">Edit Profile</button>
+                        <button (click)="onSubmit()" type="button" *ngIf="isEditProfile" class="btn btn-success mt-4">Update Profile</button>
+                        <button (click)="onEditProfile()" type="button" *ngIf="isEditProfile" class="btn btn-warning mt-4">Cancel</button>
+
+                    </div>
+                  </form>
+
+                  <form [formGroup]="passwordForm" (ngSubmit)="onpasswordUpdate()" *ngIf="isChangePassword">
+                    <div class="form-group form-grp-email" [ngClass]="{'focused':focus2===true}">
+                        <label>Password</label>
+                      <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                        </div>
+                        <input class="form-control" formControlName="password" placeholder="Password" type="password" (focus)="focus2=true" (blur)="focus2=false">
+                      </div>
+                      <div *ngIf="submittedd && ff.password.errors" class="text-danger">
+                        <div *ngIf="ff.password.errors.required !!">Password is required !!</div>
+                        <div *ngIf="ff.password.errors.minlength">Password must be at least 6 characters</div>
+                    </div>
+                    </div>
+                    <div class="form-group form-grp-email" [ngClass]="{'focused':focus2===true}">
+                        <label>Confirm password</label>
+                        <div class="input-group input-group-alternative">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                          </div>
+                          <input class="form-control" formControlName="confirmPassword" placeholder="confirmPassword" type="password" (focus)="focus2=true" (blur)="focus2=false">
+                        </div>
+                        <div *ngIf="submittedd && ff.confirmPassword.errors" class="text-danger">
+                            <div *ngIf="ff.confirmPassword.errors.required !!">Confirm Password is required !!</div>
+                            <div *ngIf="ff.confirmPassword.errors.mustMatch">Passwords must match</div>
+                      </div>
+                      </div>
+                    <div class="text-center">
+                      <button (click)="onpasswordUpdate()" type="button" *ngIf="isChangePassword" class="btn btn-success mt-4">Update Password</button>
+                      <button (click)="chnagepassword()" type="button" *ngIf="isChangePassword" class="btn btn-warning mt-4">Cancel</button>
+
+                    </div>
+                  </form>
+
+
+
+
+
+
+
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <!-- SVG separator -->
+
+    </section>
+</main>
+  

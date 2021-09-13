@@ -1,0 +1,90 @@
+<nav  class="navbar navbar-expand-lg navbar-dark " [ngClass]="[isloggedin?'bg-default':'bg-danger']">
+    <div  class="container">
+<h3 class="mb0 nav-link-icon nav-link" style="color: white; cursor: pointer;" (click)="onlogout()">Friends Book App</h3>
+<button  type="button" data-toggle="collapse" data-target="#navbar-info" aria-controls="navbar-info" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
+<span  class="navbar-toggler-icon">
+</span>
+</button>
+<div  id="navbar-info" class="collapse navbar-collapse">
+<div  class="navbar-collapse-header">
+<div  class="row">
+<div  class="col-6 collapse-brand">
+<a  >
+<img  src="./assets/img/brand/blue.png">
+</a>
+</div>
+<div  class="col-6 collapse-close">
+<button  type="button" data-toggle="collapse" data-target="#navbar-info" aria-controls="navbar-info" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
+<span >
+</span>
+<span >
+</span>
+</button>
+</div>
+</div>
+</div>
+<ul *ngIf="!isloggedin" class="navbar-nav ml-auto">
+    <li  class="nav-item">
+        <a (click)="onlogin()" class="nav-link nav-link-icon">
+            <i  class="fa fa-facebook-square">
+            </i>
+            <span  class="nav-link-inner--text">Login</span>
+            </a>
+    </li>
+    <li  class="nav-item">
+        <a (click)="onregister()" class="nav-link nav-link-icon">
+            <i  class="fa fa-facebook-square">
+            </i>
+            <span  class="nav-link-inner--text">Register</span>
+            </a>
+    </li>
+    
+</ul>
+<ul *ngIf="isloggedin" class="navbar-nav ml-auto">
+<li  class="nav-item">
+    <a (click)="onHome()" class="nav-link nav-link-icon">
+        <i  class="fa fa-facebook-square">
+        </i>
+        <span  class="nav-link-inner--text">Home</span>
+        </a>
+</li>
+<li  *ngIf="isAdmin" class="nav-item">
+    <a (click)="onUsers()" class="nav-link nav-link-icon">
+        <i  class="fa fa-facebook-square">
+        </i>
+        <span  class="nav-link-inner--text">Admin</span>
+        </a>
+</li>
+<li>
+<a (click)="onNetwork()" class="nav-link nav-link-icon">
+<i  class="fa fa-facebook-square">
+</i>
+<span  class="nav-link-inner--text">Network</span>
+</a>
+</li>
+<li>
+    <a  (click)="onFriends()" class="nav-link nav-link-icon">
+    <i  class="fa fa-facebook-square">
+    </i>
+    <span  class="nav-link-inner--text">Friends</span>
+    </a>
+    </li>
+<li  class="nav-item">
+<a (click)="onSetting()"  class="nav-link nav-link-icon">
+<i  class="fa fa-twitter">
+</i>
+<span  class="nav-link-inner--text">Settings</span>
+</a>
+</li>
+<li  class="nav-item">
+    <a (click)="onlogout()"  class="nav-link nav-link-icon">
+    <i  class="fa fa-twitter">
+    </i>
+    <span  class="nav-link-inner--text">Logout</span>
+    </a>
+    </li>
+
+</ul>
+</div>
+</div>
+</nav>

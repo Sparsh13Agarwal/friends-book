@@ -1,0 +1,166 @@
+<main>
+  <section class="section  section-hero section-shaped">
+    <div class="shape shape-style-1 shape-default">
+      <span ></span><span ></span><span ></span><span ></span><span ></span><span ></span>
+
+    </div>
+    
+    <div class="container pt-lg-md">
+      <div class="row justify-content-center">
+        <div class="col-lg-5">
+          <div class="card bg-secondary shadow border-0">
+            <div class="card-body px-lg-5 py-lg-5">
+              <div class="text-center text-muted mb-4">
+                <h3 style="margin-top: 1rem !important;" class="h4 text-success font-weight-bold mt-md">Sign up</h3>              </div>
+              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+                <div class="form-group" [ngClass]="{'focused':focus===true}">
+                  <label>Name</label>
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                    <input formControlName="firstName" class="form-control" placeholder="First Name" type="text" (focus)="focus=true" (blur)="focus=false">
+                  </div>
+                  <div *ngIf="submitted && f.firstName.errors" class="text-danger">
+                    <div *ngIf="f.firstName.errors.required">First Name is required</div>
+                </div>
+                </div>
+                
+                <div class="form-group" [ngClass]="{'focused':focus3===true}">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                    <input formControlName="lastName" class="form-control" placeholder="Last Name" type="text" (focus)="focus3=true" (blur)="focus3=false">
+                  </div>
+                  <div *ngIf="submitted && f.lastName.errors" class="text-danger">
+                    <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                </div>
+                </div>
+                <div class="custom-control custom-radio mb-3">
+                  <input id="male" type="radio" class="custom-control-input" value="Male" name="gender" formControlName="gender">
+                  <label class="custom-control-label" for="male">Male</label>
+                </div>
+    
+                <div class="custom-control custom-radio mb-3">
+                  <input id="female" type="radio" class="custom-control-input" value="Female" name="gender" formControlName="gender">
+                  <label class="custom-control-label" for="female">Female</label>
+                </div>
+                <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                    </div>
+                    <input class="form-control" formControlName="email" placeholder="Email" type="email" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"(focus)="focus1=true" (blur)="focus1=false">
+                  </div>
+                  <div *ngIf="submitted && f.email.errors" class="text-danger">
+                    <div *ngIf="f.email.errors.required">Email Name is required</div>
+                    <div *ngIf="f.email.errors.email">Email is invalid</div>
+                </div>
+                </div>
+                <div class="form-group" [ngClass]="{'focused':focus2===true}">
+                  <div class="input-group input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <input class="form-control" formControlName="password" placeholder="Password" type="password" (focus)="focus2=true" (blur)="focus2=false">
+                  </div>
+                  <div *ngIf="submitted && f.password.errors" class="text-danger">
+                    <div *ngIf="f.password.errors.required !!">Password is required !!</div>
+                    <div *ngIf="f.password.errors.minlength">Password minimum 6 characters !!</div>
+                </div>
+                </div>
+                <label>Date of Birth</label>
+                <div  class="input-group input-group-alternative mb-3">
+                  
+                  <div  class="input-group-prepend">
+                    <span  class="input-group-text"><i  class="ni ni-calendar-grid-58"></i></span></div>
+                      <input  formControlName="dob" placeholder="Date of birth" name="dp" ngbdatepicker="" type="date" autocomplete="off" class="form-control datepicker ng-untouched ng-pristine ng-valid" ng-reflect-name="dp">
+                      <!--container--></div>
+                      <div class="form-group" [ngClass]="{'focused':focus4===true}">
+                        <label>Phone Number</label>
+                        <div class="input-group input-group-alternative mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-mobile-button"></i></span>
+                          </div>
+                          <input formControlName="phone" class="form-control" placeholder="Phone Number" type="text" (focus)="focus4=true" (blur)="focus4=false">
+                        </div>
+                        <div *ngIf="submitted && f.phone.errors" class="text-danger">
+                          <div *ngIf="f.phone.errors.required !!">Phone number is required !!</div>
+                          <div *ngIf="f.phone.errors.minlength">Phone number minimum 10 digits</div>
+                      </div>
+                      </div>
+                    
+
+
+                    <div class="form-group" [ngClass]="{'focused':focus5===true}">
+                      <label>Address</label>
+                        <div class="input-group input-group-alternative mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-building"></i></span>
+                          </div>
+                          <input formControlName="city" class="form-control" placeholder="City" type="text" (focus)="focus5=true" (blur)="focus5=false">
+                        </div>
+                        <div *ngIf="submitted && f.city.errors" class="text-danger">
+                          <div *ngIf="f.city.errors.required !!">City is required !!</div>
+                      </div>
+                      </div>
+                      <div class="form-group" [ngClass]="{'focused':focus6===true}">
+                        <div class="input-group input-group-alternative mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-building"></i></span>
+                          </div>
+                          <input formControlName="state" class="form-control" placeholder="State" type="text" (focus)="focus6=true" (blur)="focus6=false">
+                        </div>
+                        <div *ngIf="submitted && f.state.errors" class="text-danger">
+                          <div *ngIf="f.state.errors.required !!">State is required !!</div>
+                      </div>
+                      </div>
+                      <div class="form-group" [ngClass]="{'focused':focus7===true}">
+                        <label>Country</label>
+                        <div class="input-group input-group-alternative mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-building"></i></span>
+                          </div>
+                          <input formControlName="country" class="form-control" placeholder="Country" type="text" (focus)="focus7=true" (blur)="focus7=false">
+                        </div>
+                        <div *ngIf="submitted && f.country.errors" class="text-danger">
+                          <div *ngIf="f.country.errors.required !!">Country is required !!</div>
+                      </div>
+                      </div>
+                      <div class="form-group" [ngClass]="{'focused':focus8===true}">
+                        <label>Pincode</label>
+                        <div class="input-group input-group-alternative mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="ni ni-briefcase-24"></i></span>
+                          </div>
+                          <input formControlName="pincode" class="form-control" placeholder="Pincode" type="text" (focus)="focus8=true" (blur)="focus8=false">
+                        </div>
+                        <div *ngIf="submitted && f.pincode.errors" class="text-danger">
+                          <div *ngIf="f.pincode.errors.required !!">Pincode  is required !!</div>
+                      </div>
+                      </div>
+
+
+                
+                <div class="row my-4">
+                  <div class="col-12">
+                    <div class="custom-control custom-control-alternative custom-checkbox">
+                      
+                        <span>If already registered
+                          <a style="color: #5e72e4;" (click)="onlogin()">Log In</a>
+                        </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center">
+                  <button (click)="onSubmit()" type="button" class="btn btn-primary mt-4">Create account</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
