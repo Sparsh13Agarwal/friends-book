@@ -1,6 +1,6 @@
 # FriendsBook
 
-This project for **Edureka Angular Certification** was generated with [Angular CLI] version 9.1.0.
+
 
 
 ## Development server
